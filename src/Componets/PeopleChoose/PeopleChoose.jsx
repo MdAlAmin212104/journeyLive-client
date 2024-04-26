@@ -8,7 +8,7 @@ const PeopleChoose = () => {
                   <div className="text-center md:text-left mt-20">
                         <p className="font-semibold text-[#FF497C] mb-3 text-center md:text-left">
                         <span className="bg-[#FF497C] text-white mr-3 text-xl px-2 py-1 rounded-full">
-                        {/* <i className="bx bxs-like"></i> */}
+                              
                         </span>
                         Why Us
                         </p>
