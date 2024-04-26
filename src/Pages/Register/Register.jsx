@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import Swal from 'sweetalert2'
 
 const Register = () => {
       const  {singUpWithEmailPassword }  = useContext(AuthContext)
@@ -12,7 +13,10 @@ const Register = () => {
             const password = form.password.value;
             console.log(email, password);
             singUpWithEmailPassword(email, password)
-                  .then(res => console.log(res.user))
+                  .then(res => {
+                        Swal.fire("User create success!");
+                        console.log(res.user)
+                  })
                   .catch(err => console.error(err));
       }
 
