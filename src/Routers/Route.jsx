@@ -7,6 +7,7 @@ import AddTouristSpot from "../Pages/AddTouristsSpot/AddTouristSpot";
 import SpotList from "../Pages/SpotList/SpotList";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
+import PrivateRoute from "./PrivateRoute";
 
 
 
@@ -28,11 +29,11 @@ const Route = createBrowserRouter([
                   },
                   {
                         path: '/addSpot',
-                        element: <AddTouristSpot/>
+                        element: <PrivateRoute><AddTouristSpot/></PrivateRoute>
                   },
                   {
                         path: '/spotList',
-                        element: <SpotList/>
+                        element: <PrivateRoute><SpotList/></PrivateRoute>
                   },
                   {
                         path: '/login',

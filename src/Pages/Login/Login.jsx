@@ -1,11 +1,16 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
 import { FaFacebook } from 'react-icons/fa6';
 
 const Login = () => {
-      const { singInWithEmailPassword, googleLogin, facebookLogin, githubLogin } = useContext(AuthContext)
+      const { singInWithEmailPassword, googleLogin, facebookLogin, githubLogin, loading } = useContext(AuthContext);
+      const location = useLocation();
+      const navigate = useNavigate();
+      if (loading) {
+            return <span className="loading loading-spinner loading-md"></span>
+      }
 
       const handleLogin = e => {
             e.preventDefault();
@@ -17,6 +22,7 @@ const Login = () => {
             singInWithEmailPassword(email, password)
                   .then(res => {
                         Swal.fire("User singIn success!");
+                        navigate(location?.state ? location.state : "/");
                         console.log(res.user);
                   })
                   .catch(err => console.error(err));
@@ -25,6 +31,7 @@ const Login = () => {
       const handleGoogleLogin = () => {
             googleLogin()
                   .then(res => {
+                        navigate(location?.state ? location.state : "/");
                         Swal.fire("User Login success!");
                         console.log(res.user)
                   })
@@ -33,6 +40,7 @@ const Login = () => {
       const handleFacebookLogin = () => {
             facebookLogin()
                   .then(res => {
+                        navigate(location?.state ? location.state : "/");
                         Swal.fire("User Login success!");
                         console.log(res.user)
                   })
@@ -41,6 +49,7 @@ const Login = () => {
       const handleGithubLogin = () => {
             githubLogin()
                   .then(res => {
+                        navigate(location?.state ? location.state : "/");
                         Swal.fire("User Login success!");
                         console.log(res.user)
                   })
