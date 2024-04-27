@@ -9,6 +9,7 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import PrivateRoute from "./PrivateRoute";
 import SingleSport from "../Componets/SingleSport/SingleSport";
+import SportUpdate from "../Componets/SportUpdate/SportUpdate";
 
 
 
@@ -22,7 +23,7 @@ const Route = createBrowserRouter([
             children: [
                   {
                         path: '/',
-                        element: <Home/>
+                        element: <Home />
                   },
                   {
                         path: '/touristsSpot',
@@ -31,7 +32,13 @@ const Route = createBrowserRouter([
                   },
                   {
                         path: '/sport/:id',
-                        element: <SingleSport/>
+                        element: <PrivateRoute><SingleSport /></PrivateRoute>,
+                        loader: ({ params }) => fetch(`http://localhost:5000/sport/${params.id}`)
+                  },
+                  {
+                        path: '/sportUpdate/:id',
+                        element: <PrivateRoute> <SportUpdate /> </PrivateRoute>,
+                        loader: ({ params }) => fetch(`http://localhost:5000/sport/${params.id}`)
                   },
                   {
                         path: '/addSpot',
