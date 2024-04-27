@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const AddTouristSpot = () => {
 
@@ -20,16 +21,29 @@ const AddTouristSpot = () => {
             const rating = form.rating.value;
             const photo = form.photo.value;
             const desc = form.desc.value;
-            const email = user?.email || 'email not available';
-            const userName = user?.displayName || "name not available";
-            console.log(email, userName);
-            const newProduct = {name, countryName, location, seasonality, time, cost, visitors, rating, photo, desc, email}
+            const email = user?.email;
+            const userName = user?.displayName;
+            const newProduct = {name, countryName, location, seasonality, time, cost, visitors, rating, photo, desc, email, userName}
             console.log(newProduct);
+            fetch('http://localhost:5000/product', {
+                  method: 'POST',
+                  headers: {
+                        "content-type": "application/json",
+                  },
+                  body: JSON.stringify(newProduct)
+            })
+                  .then(res => res.json())
+                  .then(data => {
+                        if (data.insertedId) {
+                              Swal.fire("this product database added success!");
+                        }
+                        form.reset();
+                  })
       }
       return (
             <div className='bg-[#F4F3F0] p-8'>
-                  <h3 className="text-5xl text-center poppins font-bold mt-8">Add Tourists Spot</h3>
-                  <p className="text-xl font-medium w-2/3 text-center mx-auto pt-4">It is a long established fact that a reader will be distraceted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here.</p>
+                  <h3 className="lg:text-5xl text-2xl text-center poppins font-bold mt-8">Add Tourists Spot</h3>
+                  <p className="text-xl font-medium lg:w-2/3 text-center mx-auto pt-4">It is a long established fact that a reader will be distraceted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here.</p>
 
 
 
