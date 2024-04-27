@@ -15,7 +15,6 @@ const Login = () => {
             const form = e.target;
             const email = form.email.value;
             const password = form.password.value;
-            console.log(email, password);
 
             singInWithEmailPassword(email, password)
                   .then(res => {
@@ -56,7 +55,6 @@ const Login = () => {
                   .then(res => {
                         navigate(location?.state ? location.state : "/");
                         Swal.fire("User Login success!");
-                        console.log(res.user)
                   })
                   
       }

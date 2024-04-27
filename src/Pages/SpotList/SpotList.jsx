@@ -14,7 +14,6 @@ const SpotList = () => {
             })
                   .then(res => res.json())
                   .then(data => {
-                        console.log(data);
                         setUserSport(data);
                   })
       }, [])

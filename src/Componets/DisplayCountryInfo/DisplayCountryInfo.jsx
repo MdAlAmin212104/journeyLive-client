@@ -1,7 +1,6 @@
 import React from 'react';
 
 const DisplayCountryInfo = ({ info }) => {
-      console.log(info);
       const {name, image, desc} = info;
       return (
             <div className="card bg-[#daaba3] shadow-xl pt-4">
