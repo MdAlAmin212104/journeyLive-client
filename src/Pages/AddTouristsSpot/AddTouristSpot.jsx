@@ -4,7 +4,7 @@ import { AuthContext } from '../../AuthProvider/AuthProvider';
 const AddTouristSpot = () => {
 
       const { user } = useContext(AuthContext)
-      console.log(user);
+      //console.log(user);
 
 
       const handleAddSport = (e) => {
@@ -17,9 +17,13 @@ const AddTouristSpot = () => {
             const time = form.time.value;
             const cost = form.cost.value;
             const visitors = form.visitors.value;
+            const rating = form.rating.value;
             const photo = form.photo.value;
             const desc = form.desc.value;
-            const newProduct = {name, countryName, location, seasonality, time, cost, visitors, photo, desc}
+            const email = user?.email || 'email not available';
+            const userName = user?.displayName || "name not available";
+            console.log(email, userName);
+            const newProduct = {name, countryName, location, seasonality, time, cost, visitors, rating, photo, desc, email}
             console.log(newProduct);
       }
       return (
@@ -74,6 +78,12 @@ const AddTouristSpot = () => {
                                     </label>
                                     <input type="text" name='visitors' placeholder="Total Visitors Per Year" className="input input-bordered" required />
                               </div>
+                              <div className="form-control">
+                                    <label className="label">
+                                          <span className="label-text text-xl font-semibold">Rating :</span>
+                                    </label>
+                                    <input type="text" name='rating' placeholder="User Rating " className="input input-bordered" required />
+                              </div>
                         </div>
                         <div className="form-control">
                               <label className="label">
@@ -88,7 +98,7 @@ const AddTouristSpot = () => {
                               <textarea name="desc" id="" cols="30" rows="10" placeholder='description......'  className="rounded-3xl p-4"></textarea>
                               
                         </div>
-                        <input type="submit" value='AddSport' className='btn btn-primary my-4' />
+                        <input type="submit" value='Add Sport' className='btn bg-[#D2B48C] my-4 text-xl' />
                                     
                   </form>
             </div>

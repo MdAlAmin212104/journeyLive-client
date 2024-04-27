@@ -20,7 +20,7 @@ const Login = () => {
             singInWithEmailPassword(email, password)
                   .then(res => {
                         Swal.fire("User singIn success!");
-                        navigate(location?.state ? location.state : "/");
+                        navigate(location.state || "/");
                   })
                   .catch(err => {
                         Swal.fire({
@@ -29,7 +29,7 @@ const Login = () => {
                               icon: "question"
 
                         });
-                        navigate(location?.state ? location.state : "/")
+                        navigate( location.state || "/")
                   });
       }
 
