@@ -1,13 +1,17 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigation } from 'react-router-dom';
 import Navbar from '../Componets/Navbar/Navbar';
 import Footer from '../Componets/Footer/Footer';
 
 const Root = () => {
+      const navigation = useNavigation()
       return (
             <div className='container mx-auto'>
-                  <Navbar/>
-                  <Outlet />
+                  <Navbar />
+                  {
+                        navigation.state === 'loading' ? <span className="loading loading-dots loading-lg"></span>: <Outlet />
+                  }
+                  
                   <Footer/>
             </div>
       );
