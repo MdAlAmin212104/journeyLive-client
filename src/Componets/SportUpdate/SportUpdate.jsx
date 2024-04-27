@@ -1,13 +1,15 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const SportUpdate = () => {
 
       const { user } = useContext(AuthContext);
       const singleSportInfo = useLoaderData();
-      console.log(singleSportInfo);
-      const {name, countryName, location, seasonality, time, cost, visitors, rating, photo, desc} = singleSportInfo;
+      const navigate = useNavigate()
+      
+      const {_id, name, countryName, location, seasonality, time, cost, visitors, rating, photo, desc} = singleSportInfo;
 
       const handleAddSport = (e) => {
             e.preventDefault();
@@ -26,7 +28,7 @@ const SportUpdate = () => {
             const userName = user?.displayName;
             const userPhoto = user?.photoURL;
             const UpdateProduct = {name, countryName, location, seasonality, time, cost, visitors, rating, photo, desc, email, userName, userPhoto}
-            console.log(newProduct);
+            
 
 
             fetch(`http://localhost:5000/product/${_id}`, {
@@ -38,10 +40,11 @@ const SportUpdate = () => {
             })
                   .then(res => res.json())
                   .then(data => {
-                        if (data.insertedId) {
-                              Swal.fire("this product database added success!");
+                        console.log(data);
+                        if (data.modifiedCount > 0) {
+                              Swal.fire("this product database Update success!");
                         }
-                        form.reset();
+                        navigate(location?.state  || '/touristsSpot')
                   })
       }
       return (

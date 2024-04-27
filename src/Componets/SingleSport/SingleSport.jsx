@@ -1,9 +1,42 @@
 import React from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData, Navigate, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const SingleSport = () => {
       const singleSport = useLoaderData();
-      const {_id, name, countryName, location, seasonality, time, cost, visitors, rating, photo, desc, userName, userPhoto} = singleSport;
+      const { _id, name, countryName, location, seasonality, time, cost, visitors, rating, photo, desc, userName, userPhoto } = singleSport;
+      const navigate = useNavigate()
+      
+      const handleDelate = (id) => {
+            console.log(id);
+            Swal.fire({
+                  title: "Are you sure?",
+                  text: "You won't be able to revert this!",
+                  icon: "warning",
+                  showCancelButton: true,
+                  confirmButtonColor: "#3085d6",
+                  cancelButtonColor: "#d33",
+                  confirmButtonText: "Yes, delete it!"
+            }).then((result) => {
+                  if (result.isConfirmed) {
+                        fetch(`http://localhost:5000/sport/${id}`, {
+                              method: "DELETE",
+                        })
+                              .then(res => res.json())
+                              .then(data => {
+                                    if (data.deleteCount > 0) {
+                                         Swal.fire({
+                                                title: "Deleted!",
+                                                text: "Your file has been deleted.",
+                                                icon: "success"
+                                          }); 
+                                    }
+                                    navigate(location?.state  || '/touristsSpot')
+
+                              })
+                  }
+            });
+      }
       return (
             <div className="card bg-base-100 shadow-xl poppins ">
                   <figure className=''><img src={photo} alt="Shoes" className='w-full max-h-[600px]' /></figure>
@@ -32,7 +65,7 @@ const SingleSport = () => {
                   </div>
                   <div className="card-actions justify-end">
                         <Link to={`/sportUpdate/${_id}`} className="btn btn-primary">Update</Link>
-                        <button className="btn btn-error">Delete</button>
+                        <button onClick={() => handleDelate(_id)} className="btn btn-error">Delete</button>
                   </div>
                   </div>
             </div>

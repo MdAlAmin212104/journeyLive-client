@@ -2,8 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const DisplayAllSport = ({ sport }) => {
-      const {_id, name, countryName, location, seasonality, time, cost, visitors, rating, photo, desc, email, userName, userPhoto} = sport;
-      console.log(sport);
+      const {_id, name, seasonality, time, rating, photo, desc, userName, userPhoto} = sport;
       return (
             <div className="card bg-base-100 shadow-xl poppins">
                   <figure className='h-[300px]'><img src={photo} alt="Shoes" /></figure>

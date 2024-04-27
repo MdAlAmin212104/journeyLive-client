@@ -5,7 +5,6 @@ import Swal from 'sweetalert2';
 const AddTouristSpot = () => {
 
       const { user } = useContext(AuthContext)
-      //console.log(user);
 
 
       const handleAddSport = (e) => {
@@ -25,7 +24,6 @@ const AddTouristSpot = () => {
             const userName = user?.displayName;
             const userPhoto = user?.photoURL;
             const newProduct = {name, countryName, location, seasonality, time, cost, visitors, rating, photo, desc, email, userName, userPhoto}
-            console.log(newProduct);
             fetch('http://localhost:5000/product', {
                   method: 'POST',
                   headers: {
@@ -39,6 +37,7 @@ const AddTouristSpot = () => {
                               Swal.fire("this product database added success!");
                         }
                         form.reset();
+
                   })
       }
       return (
