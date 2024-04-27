@@ -14,7 +14,6 @@ import SportUpdate from "../Componets/SportUpdate/SportUpdate";
 
 
 
-
 const Route = createBrowserRouter([
       {
             path: '/',
@@ -28,7 +27,7 @@ const Route = createBrowserRouter([
                   {
                         path: '/touristsSpot',
                         element: <AllTouristsSpot />,
-                        loader: () => fetch('http://localhost:5000/product')
+                        loader: () => fetch('http://localhost:5000/sport')
                   },
                   {
                         path: '/sport/:id',
@@ -46,7 +45,8 @@ const Route = createBrowserRouter([
                   },
                   {
                         path: '/spotList',
-                        element: <PrivateRoute><SpotList/></PrivateRoute>
+                        element: <PrivateRoute><SpotList /></PrivateRoute>,
+                        
                   },
                   {
                         path: '/login',

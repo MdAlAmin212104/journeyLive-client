@@ -2,7 +2,24 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const DisplayAllSport = ({ sport }) => {
-      const {_id, name, seasonality, time, rating, photo, desc, userName, userPhoto} = sport;
+      const { _id, name, seasonality, time, rating, photo, desc, userName, userPhoto } = sport;
+      
+      // const sliceText = (text, maxWords) => {
+      // const words = text.split(' ');
+      // const slicedText = words.slice(0, maxWords).join(' ');
+      // if (words.length > maxWords) {
+      //       return slicedText + '...';
+      // }
+      // return slicedText;
+      // };
+      const sliceText = (text, maxChars) => {
+            if (text.length <= maxChars) {
+                  return text;
+            }
+            return text.slice(0, maxChars) + '...';
+      };
+
+
       return (
             <div className="card bg-base-100 shadow-xl poppins">
                   <figure className='h-[300px]'><img src={photo} alt="Shoes" /></figure>
@@ -23,7 +40,7 @@ const DisplayAllSport = ({ sport }) => {
                               <p className='mt-3 ml-4'>By { userName }</p>
                         </div>
 
-                        <p>Description : { desc }</p>
+                        <p> {sliceText(desc, 100)} </p>
                               
                         <div className="card-actions justify-end mt-8">
                               <Link to={`/sport/${_id}`} className="btn btn-primary">View Details</Link>

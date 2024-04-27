@@ -31,7 +31,7 @@ const SportUpdate = () => {
             
 
 
-            fetch(`http://localhost:5000/product/${_id}`, {
+            fetch(`http://localhost:5000/sport/${_id}`, {
                   method: 'PATCH',
                   headers: {
                         "content-type": "application/json",
