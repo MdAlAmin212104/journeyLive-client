@@ -1,21 +1,33 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import Swal from 'sweetalert2'
 
 const Register = () => {
-      const  {singUpWithEmailPassword }  = useContext(AuthContext)
+      const { singUpWithEmailPassword } = useContext(AuthContext)
+      const location = useLocation()
+      const navigate = useNavigate()
 
       const handleSingUp = e => {
             e.preventDefault();
             const form = e.target;
             const email = form.email.value;
             const password = form.password.value;
-            console.log(email, password);
+            const regex = /^(?=.*[A-Z])(?=.*[a-z]).{6,}$/
+            if (!regex.test(password)) {
+                  Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: "your password must be Uppercase and lowercase and minimum 6 characters",
+                  });
+                  return;
+            }
+            
+            
             singUpWithEmailPassword(email, password)
                   .then(res => {
                         Swal.fire("User create success!");
-                        console.log(res.user)
+                        navigate(location?.state ? location.state : "/")
                   })
                   .catch(err => console.error(err));
       }
@@ -27,8 +39,16 @@ const Register = () => {
                   <h1 className="text-2xl font-bold text-center">Register</h1>
                   <form onSubmit={ handleSingUp }  className="space-y-6">
                         <div className="space-y-1 text-sm">
-                              <label htmlFor="username" className="block text-gray-600">email :</label>
+                              <label htmlFor="name" className="block text-gray-600">Name :</label>
+                              <input type="text" name="name" id="username" placeholder="Name" className="w-full px-4 py-3 rounded-md border-gray-300 bg-white text-gray-800 focus:border-violet-600" />
+                        </div>
+                        <div className="space-y-1 text-sm">
+                              <label htmlFor="email" className="block text-gray-600">email :</label>
                               <input type="email" name="email" id="username" placeholder="Email" className="w-full px-4 py-3 rounded-md border-gray-300 bg-white text-gray-800 focus:border-violet-600" />
+                        </div>
+                        <div className="space-y-1 text-sm">
+                              <label htmlFor="PhotoURL" className="block text-gray-600">email :</label>
+                              <input type="text" name="photo" id="username" placeholder="PhotoURL" className="w-full px-4 py-3 rounded-md border-gray-300 bg-white text-gray-800 focus:border-violet-600" />
                         </div>
                         <div className="space-y-1 text-sm">
                               <label htmlFor="password" className="block text-gray-600">Password</label>

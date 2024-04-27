@@ -8,9 +8,7 @@ const Login = () => {
       const { singInWithEmailPassword, googleLogin, facebookLogin, githubLogin, loading } = useContext(AuthContext);
       const location = useLocation();
       const navigate = useNavigate();
-      if (loading) {
-            return <span className="loading loading-spinner loading-md"></span>
-      }
+      
 
       const handleLogin = e => {
             e.preventDefault();
@@ -23,9 +21,16 @@ const Login = () => {
                   .then(res => {
                         Swal.fire("User singIn success!");
                         navigate(location?.state ? location.state : "/");
-                        console.log(res.user);
                   })
-                  .catch(err => console.error(err));
+                  .catch(err => {
+                        Swal.fire({
+                              title: "Auth Error?",
+                              text: err.message,
+                              icon: "question"
+
+                        });
+                        navigate(location?.state ? location.state : "/")
+                  });
       }
 
       const handleGoogleLogin = () => {
@@ -56,6 +61,10 @@ const Login = () => {
                   
       }
 
+
+      if (loading) {
+            return <span className="loading loading-spinner loading-md"></span>
+      }
 
       return (
             <div className="w-full max-w-md p-8 space-y-3 rounded-xl bg-gray-50 text-gray-800 mx-auto mt-8">

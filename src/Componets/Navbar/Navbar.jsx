@@ -43,7 +43,25 @@ const Navbar = () => {
                         </div>
                         <div className="navbar-end">
                         {
-                              user ? <button className='btn' onClick={handleLogOut}>Logout</button>: <Link to='/login' className="btn">Login</Link>
+                              user ? <>
+                                          <span className='mr-4'></span>
+                                          <div className="dropdown dropdown-end group">
+                                                <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar focus:outline-none">
+                                                      <div className="w-10 rounded-full">
+                                                            <img className='' alt="Tailwind CSS Navbar component" src={ user?.photoURL || "https://lh3.googleusercontent.com/a/ACg8ocKfSrgZFBvoQ6s12ZB8gHSg3E625KGpnaiYthDiKIfNqh1g62wg=s96-c"} />
+                                                      </div>
+                                                </div>
+                                                <ul className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52 invisible opacity-0 transition-opacity duration-200 group-hover:visible group-hover:opacity-100">
+                                                      <li><a>{user?.displayName || 'Name not found'}</a></li>
+                                                      <li><a onClick={handleLogOut}>Logout</a></li>
+                                                </ul>
+                                          </div>
+                                    </> 
+                              :
+                                    <>
+                                          <Link to='/login' className="btn mr-4">Login</Link>
+                                          <Link to='/register' className="btn">Register</Link>
+                                    </>
                         }
                         
                   </div>
