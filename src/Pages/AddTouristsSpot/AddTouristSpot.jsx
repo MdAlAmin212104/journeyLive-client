@@ -23,7 +23,8 @@ const AddTouristSpot = () => {
             const desc = form.desc.value;
             const email = user?.email;
             const userName = user?.displayName;
-            const newProduct = {name, countryName, location, seasonality, time, cost, visitors, rating, photo, desc, email, userName}
+            const userPhoto = user?.photoURL;
+            const newProduct = {name, countryName, location, seasonality, time, cost, visitors, rating, photo, desc, email, userName, userPhoto}
             console.log(newProduct);
             fetch('http://localhost:5000/product', {
                   method: 'POST',

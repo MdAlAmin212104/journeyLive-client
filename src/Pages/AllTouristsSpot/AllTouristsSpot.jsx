@@ -8,7 +8,7 @@ const AllTouristsSpot = () => {
       const [sport, setSport] = useState(allTouristsSpot);
       
       return (
-            <div className='grid md:grid-cols-2 gap-4 mt-4'>
+            <div className='grid lg:grid-cols-3 md:grid-cols-2 gap-4 mt-4'>
                   {
                         sport.map(sport => <DisplayAllSport key={sport._id} sport={sport} />)
                   }

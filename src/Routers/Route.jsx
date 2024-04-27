@@ -8,6 +8,7 @@ import SpotList from "../Pages/SpotList/SpotList";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import PrivateRoute from "./PrivateRoute";
+import SingleSport from "../Componets/SingleSport/SingleSport";
 
 
 
@@ -27,6 +28,10 @@ const Route = createBrowserRouter([
                         path: '/touristsSpot',
                         element: <AllTouristsSpot />,
                         loader: () => fetch('http://localhost:5000/product')
+                  },
+                  {
+                        path: '/sport/:id',
+                        element: <SingleSport/>
                   },
                   {
                         path: '/addSpot',
