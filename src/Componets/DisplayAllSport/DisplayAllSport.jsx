@@ -2,16 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const DisplayAllSport = ({ sport }) => {
-      const { _id, name, seasonality, time, rating, photo, desc, userName, userPhoto } = sport;
+      const { _id, name, seasonality, time, rating, photo, desc, userName, userPhoto, cost } = sport;
       
-      // const sliceText = (text, maxWords) => {
-      // const words = text.split(' ');
-      // const slicedText = words.slice(0, maxWords).join(' ');
-      // if (words.length > maxWords) {
-      //       return slicedText + '...';
-      // }
-      // return slicedText;
-      // };
+      
       const sliceText = (text, maxChars) => {
             if (text.length <= maxChars) {
                   return text;
@@ -29,7 +22,10 @@ const DisplayAllSport = ({ sport }) => {
                               <p> rating : {rating}</p>
                               <p>time : {time}</p>
                         </div>
-                        <p>seasonality : { seasonality }</p>
+                        <div className='flex justify-between'>
+                              <p>seasonality : {seasonality}</p>
+                              <p>Cost : { cost }</p>
+                        </div>
                         <div className='flex'>
                               <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                                     <div className="w-10 rounded-full">

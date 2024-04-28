@@ -40,7 +40,6 @@ const SportUpdate = () => {
             })
                   .then(res => res.json())
                   .then(data => {
-                        console.log(data);
                         if (data.modifiedCount > 0) {
                               Swal.fire("this product database Update success!");
                         }

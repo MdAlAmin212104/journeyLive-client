@@ -37,7 +37,6 @@ const Login = () => {
                   .then(res => {
                         navigate(location?.state ? location.state : "/");
                         Swal.fire("User Login success!");
-                        console.log(res.user)
                   })
                   
       }
@@ -46,7 +45,6 @@ const Login = () => {
                   .then(res => {
                         navigate(location?.state ? location.state : "/");
                         Swal.fire("User Login success!");
-                        console.log(res.user)
                   })
                   
       }
