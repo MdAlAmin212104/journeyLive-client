@@ -10,6 +10,7 @@ import Register from "../Pages/Register/Register";
 import PrivateRoute from "./PrivateRoute";
 import SingleSport from "../Componets/SingleSport/SingleSport";
 import SportUpdate from "../Componets/SportUpdate/SportUpdate";
+import FindCountry from "../Componets/FindCountry/FindCountry";
 
 
 
@@ -38,6 +39,12 @@ const Route = createBrowserRouter([
                         path: '/sportUpdate/:id',
                         element: <PrivateRoute> <SportUpdate /> </PrivateRoute>,
                         loader: ({ params }) => fetch(`http://localhost:5000/sport/${params.id}`)
+                  },
+                  {
+                        path: '/countryName/:country',
+                        element: <FindCountry />,
+                        loader: ({ params }) => fetch(`http://localhost:5000/sportByCountry/${params.country}`),
+
                   },
                   {
                         path: '/addSpot',
