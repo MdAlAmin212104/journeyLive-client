@@ -18,7 +18,7 @@ const SingleSport = () => {
                   confirmButtonText: "Yes, delete it!"
             }).then((result) => {
                   if (result.isConfirmed) {
-                        fetch(`http://localhost:5000/sport/${id}`, {
+                        fetch(`https://tourism-management-server-steel.vercel.app/sport/${id}`, {
                               method: "DELETE",
                         })
                               .then(res => res.json())

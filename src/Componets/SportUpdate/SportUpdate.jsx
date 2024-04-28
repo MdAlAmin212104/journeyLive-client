@@ -31,7 +31,7 @@ const SportUpdate = () => {
             
 
 
-            fetch(`http://localhost:5000/sport/${_id}`, {
+            fetch(`https://tourism-management-server-steel.vercel.app/sport/${_id}`, {
                   method: 'PATCH',
                   headers: {
                         "content-type": "application/json",

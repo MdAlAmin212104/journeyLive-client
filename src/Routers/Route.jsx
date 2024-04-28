@@ -28,22 +28,22 @@ const Route = createBrowserRouter([
                   {
                         path: '/touristsSpot',
                         element: <AllTouristsSpot />,
-                        loader: () => fetch('http://localhost:5000/sport')
+                        loader: () => fetch('https://tourism-management-server-steel.vercel.app/sport')
                   },
                   {
                         path: '/sport/:id',
                         element: <PrivateRoute><SingleSport /></PrivateRoute>,
-                        loader: ({ params }) => fetch(`http://localhost:5000/sport/${params.id}`)
+                        loader: ({ params }) => fetch(`https://tourism-management-server-steel.vercel.app/sport/${params.id}`)
                   },
                   {
                         path: '/sportUpdate/:id',
                         element: <PrivateRoute> <SportUpdate /> </PrivateRoute>,
-                        loader: ({ params }) => fetch(`http://localhost:5000/sport/${params.id}`)
+                        loader: ({ params }) => fetch(`https://tourism-management-server-steel.vercel.app/sport/${params.id}`)
                   },
                   {
                         path: '/countryName/:country',
                         element: <FindCountry />,
-                        loader: ({ params }) => fetch(`http://localhost:5000/sportByCountry/${params.country}`),
+                        loader: ({ params }) => fetch(`https://tourism-management-server-steel.vercel.app/sportByCountry/${params.country}`),
 
                   },
                   {

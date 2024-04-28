@@ -24,7 +24,7 @@ const AddTouristSpot = () => {
             const userName = user?.displayName;
             const userPhoto = user?.photoURL;
             const newProduct = {name, countryName, location, seasonality, time, cost, visitors, rating, photo, desc, email, userName, userPhoto}
-            fetch('http://localhost:5000/sport', {
+            fetch('https://tourism-management-server-steel.vercel.app/sport', {
                   method: 'POST',
                   headers: {
                         "content-type": "application/json",

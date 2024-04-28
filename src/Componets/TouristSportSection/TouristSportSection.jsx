@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const TouristSportSection = () => {
       const [card, setCard] = useState([])
       useEffect(() => {
-            fetch('http://localhost:5000/sport', {
+            fetch('https://tourism-management-server-steel.vercel.app/sport', {
                   method: 'GET',
             })
                   .then(res => res.json())

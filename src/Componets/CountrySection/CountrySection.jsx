@@ -4,7 +4,7 @@ import DisplayCountryInfo from '../DisplayCountryInfo/DisplayCountryInfo';
 const CountrySection = () => {
       const [countryInfo, setCountryInfo] = useState([])
       useEffect(() => {
-            fetch('http://localhost:5000/country', {
+            fetch('https://tourism-management-server-steel.vercel.app/country', {
                   method: 'GET',
             })
                   .then(res => res.json())

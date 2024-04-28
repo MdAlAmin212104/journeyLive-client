@@ -9,7 +9,7 @@ const SpotList = () => {
 
 
       useEffect(() => {
-            fetch(`http://localhost:5000/sportByEmail/${user?.email}`, {
+            fetch(`https://tourism-management-server-steel.vercel.app/sportByEmail/${user?.email}`, {
                   method: 'GET',
             })
                   .then(res => res.json())
