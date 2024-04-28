@@ -1,5 +1,10 @@
+import { Typewriter } from "react-simple-typewriter";
+
 
 const Hero = () => {
+
+      const word = ["Bangladesh", "India", "New - Zealand", "Pakistan", "South Africa", "China"]
+     
       return (
             <div className="carousel w-full rounded-3xl my-8">
                   <div id="slide1" className="carousel-item relative w-full">
@@ -8,7 +13,7 @@ const Hero = () => {
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="hero-content text-center text-neutral-content">
                         <div className="poppins">
-                              <h1 className="mb-5 lg:text-6xl text-2xl font-bold">Welcome to Bangladesh!</h1>
+                                          <h1 className="mb-5 lg:text-6xl text-2xl font-bold">Welcome to <Typewriter words = {word}> </Typewriter></h1>
                               <p className="mb-5 ">Let Bangladesh captivate your heart and soul. Begin your adventure and create <br /> memories that will last a lifetime.</p>
                               <button className="btn btn-primary">Explore More</button>
                         </div>
