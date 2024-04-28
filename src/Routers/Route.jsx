@@ -11,6 +11,7 @@ import PrivateRoute from "./PrivateRoute";
 import SingleSport from "../Componets/SingleSport/SingleSport";
 import SportUpdate from "../Componets/SportUpdate/SportUpdate";
 import FindCountry from "../Componets/FindCountry/FindCountry";
+import SingleSportUser from "../Componets/SingleSportUser/SingleSportUser";
 
 
 
@@ -31,8 +32,13 @@ const Route = createBrowserRouter([
                         loader: () => fetch('https://tourism-management-server-steel.vercel.app/sport')
                   },
                   {
-                        path: '/sport/:id',
+                        path: '/sportUser/:id',
                         element: <PrivateRoute><SingleSport /></PrivateRoute>,
+                        loader: ({ params }) => fetch(`https://tourism-management-server-steel.vercel.app/sport/${params.id}`)
+                  },
+                  {
+                        path: '/sport/:id',
+                        element: <PrivateRoute><SingleSportUser /></PrivateRoute>,
                         loader: ({ params }) => fetch(`https://tourism-management-server-steel.vercel.app/sport/${params.id}`)
                   },
                   {

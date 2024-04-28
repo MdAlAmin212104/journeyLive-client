@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
-import DisplayAllSport from '../../Componets/DisplayAllSport/DisplayAllSport';
 import SortByCost from '../../Componets/SortByCost/SortByCost';
+import DisplayAllSportText from '../../Componets/DisplayAllSportText/DisplayAllSportText';
 
 const AllTouristsSpot = () => {
 
@@ -31,7 +31,7 @@ const AllTouristsSpot = () => {
                   </div>
                   <div className='grid lg:grid-cols-3 md:grid-cols-2 gap-4 mt-4'>
                         {
-                              sport.map(sport => <DisplayAllSport key={sport._id} sport={sport} />)
+                              sport.map(sport => <DisplayAllSportText key={sport._id} sport={sport} />)
                         }
                   </div>
             </div>

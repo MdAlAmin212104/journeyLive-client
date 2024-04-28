@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
-import DisplayAllSport from '../DisplayAllSport/DisplayAllSport';
 import Hero from '../Hero/Hero';
+import DisplayAllSportText from '../DisplayAllSportText/DisplayAllSportText';
 
 const FindCountry = () => {
       const country = useLoaderData()
@@ -11,7 +11,7 @@ const FindCountry = () => {
                   <Hero/>
                   <div className='grid lg:grid-cols-3 md:grid-cols-2 gap-4'>
                         {
-                              country.map(sport => <DisplayAllSport key={sport._id} sport={sport} />)
+                              country.map(sport => <DisplayAllSportText key={sport._id} sport={sport} />)
                         }
                   
                   </div>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import DisplayAllSport from '../DisplayAllSport/DisplayAllSport';
 import { Link } from 'react-router-dom';
+import DisplayAllSportText from '../DisplayAllSportText/DisplayAllSportText';
 
 const TouristSportSection = () => {
       const [card, setCard] = useState([])
@@ -18,7 +18,7 @@ const TouristSportSection = () => {
             <div>
                   <div className='grid lg:grid-cols-3 md:grid-cols-2 gap-4 mt-12'> 
                   {
-                        card.map(sport => <DisplayAllSport key={sport._id} sport={sport} />)
+                        card.map(sport => <DisplayAllSportText key={sport._id} sport={sport} />)
                   }
                   
                   </div>

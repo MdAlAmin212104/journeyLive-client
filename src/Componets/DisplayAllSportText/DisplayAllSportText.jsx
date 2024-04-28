@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const DisplayAllSport = ({ sport }) => {
+const DisplayAllSportText = ({ sport }) => {
+      
       const { _id, name, seasonality, time, rating, photo, desc, userName, userPhoto, cost } = sport;
       
       
@@ -39,12 +40,11 @@ const DisplayAllSport = ({ sport }) => {
                         <p> {sliceText(desc, 100)} </p>
                               
                         <div className="card-actions justify-end mt-8">
-                              <Link to={`/sportUser/${_id}`} className="btn btn-primary">View Details</Link>
+                              <Link to={`/sport/${_id}`} className="btn btn-primary">View Details</Link>
                         </div>
                   </div>
             </div>
-            
       );
 };
 
-export default DisplayAllSport;
+export default DisplayAllSportText;
