@@ -5,8 +5,14 @@ import Footer from '../Componets/Footer/Footer';
 
 const Root = () => {
       const navigation = useNavigation()
+
+
+      
+      
+
+
       return (
-            <div className='container mx-auto'>
+            <div className={`container mx-auto`}>
                   <Navbar />
                   {
                         navigation.state === 'loading' ? <span className="loading loading-dots loading-lg"></span>: <Outlet />

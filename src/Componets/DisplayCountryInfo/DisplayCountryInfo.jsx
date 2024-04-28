@@ -5,7 +5,7 @@ const DisplayCountryInfo = ({ info }) => {
       const navigate = useNavigate()
       const {name, image, desc} = info;
       return (
-            <div onClick={()=>navigate(`/countryName/${name}`)}  className="card bg-[#daaba3] shadow-xl pt-4">
+            <div onClick={()=>navigate(`/countryName/${name}`)}  className="card dark:bg-[#daaba3] shadow-xl pt-4">
                   <figure className="px-10 pt-10 h-[200px]">
                   <img src={image} alt="Shoes" className="rounded-xl" />
                   </figure>

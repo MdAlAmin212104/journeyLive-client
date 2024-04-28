@@ -22,7 +22,7 @@ const CountrySection = () => {
                         </span>
                         Top country
                   </p>
-                  <p className="text-[32px] lg:text-[40px] font-semibold dark:text-white">
+                  <p className="text-[32px] lg:text-[40px] font-semibold">
                         Country Information
                   </p>
                   </div>
