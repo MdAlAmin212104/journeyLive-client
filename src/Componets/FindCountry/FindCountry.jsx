@@ -5,7 +5,6 @@ import DisplayAllSportText from '../DisplayAllSportText/DisplayAllSportText';
 
 const FindCountry = () => {
       const country = useLoaderData()
-      console.log(country);
       return (
             <div>
                   <Hero/>

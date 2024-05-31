@@ -7,7 +7,6 @@ const AllTouristsSpot = () => {
 
       const allTouristsSpot = useLoaderData();
       const [sport, setSport] = useState(allTouristsSpot);
-      console.log(sport);
 
 
       const handleBooksFilter = sort => {
