@@ -10,8 +10,8 @@ const DisplayCountryInfo = ({ info }) => {
                   <img src={image} alt="Shoes" className="rounded-xl" />
                   </figure>
                   <div className="card-body">
-                  <h2 className="card-title">{name}</h2>
-                  <p>{desc}</p>
+                  <h2 className="card-title dark:text-black">{name}</h2>
+                  <p className='dark:text-black'>{desc}</p>
                   </div>
             </div>
       );
